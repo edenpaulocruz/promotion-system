@@ -1,18 +1,20 @@
 <h1>Promotion System - Promoções</h1>
 
+<%= link_to 'Registrar uma promoção', new_promotion_path %>
+
 <% if @promotions.empty? %>
   <p>Nenhuma promoção cadastrada</p>
-<% else %>
+<% end %>
+
+<% @promotions.each do |promotion| %>
   <dl>
-    <% @promotions.each do |promotion| %>
-      <dt>Nome</dt>
-      <dd><%= link_to promotion.name, promotion_path(promotion.id) %></dd>
-      <dt>Descrição</dt>
-      <dd><%= promotion.description %></dd>
-      <dt>Desconto</dt>
-      <dd><%= number_to_percentage promotion.discount_rate, precision: 2, separator: ',' %></dd>
-      <hr>
-    <% end %>
+    <dt>Nome</dt>
+    <dd><%= link_to promotion.name, promotion_path(promotion.id) %></dd>
+    <dt>Descrição</dt>
+    <dd><%= promotion.description %></dd>
+    <dt>Desconto</dt>
+    <dd><%= number_to_percentage promotion.discount_rate, precision: 2, separator: ',' %></dd>
+    <hr>
   </dl>
 <% end %>
 
