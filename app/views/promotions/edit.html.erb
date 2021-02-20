@@ -1,0 +1,39 @@
+<h1>Editar Promoção</h1>
+
+<% if @promotion.errors.any? %>
+  <div class="alert">
+    <p>Não foi possível editar a promoção</p>
+    <p>Confira os erros abaixo:</p>
+    <ul>
+    <% @promotion.errors.full_messages.each do |m| %>
+      <li><%= m %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: @promotion) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  <div>
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+  <div>
+    <%= f.label :discount_rate %>
+    <%= f.number_field :discount_rate %>
+  </div>
+  <div>
+    <%= f.label :coupon_quantity %>
+    <%= f.number_field :coupon_quantity %>
+  </div>
+  <div>
+    <%= f.label :expiration_date %>
+    <%= f.date_field :expiration_date %>
+  </div>
+  <%= f.submit 'Enviar' %>
+<% end %>
