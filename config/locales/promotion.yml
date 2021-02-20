@@ -1,0 +1,4 @@
+pt-BR:
+  promotions:
+    generate_coupons:
+      sucess: 'Cupons gerados com sucesso!'
