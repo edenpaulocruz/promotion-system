@@ -13,4 +13,6 @@
 </dl>
 
 <%= link_to 'Editar', edit_promotion_path(@promotion) %>
+<%= link_to 'Apagar', promotion_path(@promotion), method: :delete,
+    data: { confirm: 'Quer apagar esta promoção?' } %>
 <%= link_to 'Voltar', promotions_path %>
